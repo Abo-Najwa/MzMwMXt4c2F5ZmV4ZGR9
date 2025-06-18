@@ -1,0 +1,21 @@
+{
+    "website": "vindr.onion",
+    "description": "A sample JSON for learning.",
+    "users": [
+        {
+            "id": 1,
+            "name": "Alice",
+            "role": "admin"
+        },
+        {
+            "id": 2,
+            "name": "Bob",
+            "role": "user"
+        }
+    ],
+    "features": [
+        "login",
+        "dashboard",
+        "reports"
+    ]
+}
