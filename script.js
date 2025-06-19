@@ -4,11 +4,9 @@ document.getElementById("lllp").addEventListener(("click"), function() {
     window.location.href = "forbyfor.html";
 });
 
-// make array and object
 let arr = [1, 2, 3, 4, 5];
-let obj = { name: "John", age: 30 };
+let obj = { name: "xsayfex", age: 30 };
 
-// make function crypto this up array and object
 
 function cryptoThisUp(data) {
     if (Array.isArray(data)) {

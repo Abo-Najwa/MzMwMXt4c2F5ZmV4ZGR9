@@ -1,8 +1,3 @@
-
-
-//make algorithm to find flag in array and object
-
-
 function findFlag(data) {
     if (Array.isArray(data)) {
         return data.find(item => item === 'flag{xsayfex_flag_dark_web_example}');

